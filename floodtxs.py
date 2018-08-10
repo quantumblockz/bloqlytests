@@ -16,11 +16,13 @@ s = sched.scheduler(time.time, time.sleep)
 def floodTxs():
     r = requests.post(url, headers=headers)
     print(r.text)
-    s.enter(2, 1, floodTxs, ()) #Specify number of seconds in first parameter
+    s.enter(1, 1, floodTxs, ()) #Specify number of seconds in first parameter
     s.run()
 
-#Specify number of threads 
-p = multiprocessing.Pool(1)
-#Specify number of seconds in first parameter (same number as above)
-s.enter(2, 1, floodTxs, ()) 
-s.run()
+if __name__ = '__main__':
+    #Specify number of threads 
+    p = multiprocessing.Pool(1) 
+    #Specify number of seconds in first parameter (same number as above)
+    s.enter(1, 1, floodTxs, ()) 
+    s.run()
+
